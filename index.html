@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>QUIZ WEBAPP | SDCAC</title>
+        <meta charset = "UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content = "SDCAC QUIZ WEBAPP"/>
+        <link rel="stylesheet" href="index.css"/>
+    </head>
+    <body>
+        <div id="popup"></div>
+        <div id="main">
+            <div id="left">
+                <label>Round: </label>
+                <select id="round" onchange="r(this.value)">
+                    <script>
+                        for(var i = 0; i<=5;i++){
+                            if(i==0){document.writeln('<option value="0">Select</option>');}
+                            else{document.writeln('<option value="'+i+'">Round- '+i+'</option>')}
+                        }
+                    </script>
+                </select>            
+            </div>
+            <div id="right">
+                <div id="sdcac">SDCAC</div>
+                <h1 id="rh"></h1>
+                <div id="b">
+                    <script>
+                        //--------------------------------------
+                        r(0);
+                        function r(val){
+                            if(val==0){
+                                document.getElementById("rh").style.display="none";
+                                document.getElementById("b").style.display="none";
+                                document.getElementById("sdcac").style.display="flex";
+                            }
+                            else{
+                                document.getElementById("sdcac").style.display="none";
+                                document.getElementById("rh").style.display="flex";
+                                document.getElementById("b").style.display="grid";
+                                document.getElementById("rh").textContent= "Round: "+val;}
+                        }
+                        //--------------------------------------
+                        for(var x=1;x<=14;x++){document.write('<button id="'+x+'" type="button" onclick="question(this.id)">Qsn'+x+'</button>');}
+                        //--------------------------------------
+                        function question(qsno){
+                            //
+                            document.getElementById("popup").style.display="flex";
+                            //
+                            var r1q = ["1question1", "1question2", "1question3", "1question4", "1question5", "1question6", "1question7", "1question8", "1question9", "1question10", "1question11", "1question12", "1question13", "1question14"];
+                            var r2q = ["2question1", "2question2", "2question3", "2question4", "2question5", "2question6", "2question7", "2question8", "2question9", "2question10", "2question11", "2question12", "2question13", "2question14"];
+                            var r3q = ["3question1", "3question2", "3question3", "3question4", "3question5", "3question6", "3question7", "3question8", "3question9", "3question10", "3question11", "3question12", "3question13", "3question14"];
+                            var r4q = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13", "q14"];
+                            var r5q = [
+                            "<img src='round5/q1.png' alt='qsn'/>",
+                            "<video controls ><source src='round5/q2.mp4' type='video/mp4'>Sorry, your browser doesn't support embedded videos.</video>",
+                            "<img src='round5/q3.png' alt='qsn'/>",
+                            "<video controls ><source src='round5/q4.mp4' type='video/mp4'>Sorry, your browser doesn't support embedded videos.</video>",
+                            "<img src='round5/q5.png' alt='qsn'/>",
+                            "<video controls ><source src='round5/q6.mp4' type='video/mp4'>Sorry, your browser doesn't support embedded videos.</video>",
+                            "<img src='round5/q7.png' alt='qsn'/>",
+                            "<img src='round5/q8.png' alt='qsn'/>",
+                            "<img src='round5/q9.png' alt='qsn'/>",
+                            "<video controls ><source src='round5/q10.mp4' type='video/mp4'>Sorry, your browser doesn't support embedded videos.</video>",
+                            "<img src='round5/q11.png' alt='qsn'/>",
+                            "<video controls ><source src='round5/q12.mp4' type='video/mp4'>Sorry, your browser doesn't support embedded videos.</video>",
+                            "<img src='round5/q13.png' alt='qsn'/>",
+                            "<img src='round5/q14.png' alt='qsn'/>"];
+                            /*
+                            <video controls ><source src='round5/.mp4' type='video/mp4'>Sorry, your browser doesn't support embedded videos.</video>
+                            */
+                            var val = document.getElementById("round").value;
+                            var patch = '<abbr title="close me"><span id="closeme" onclick="this.parentNode.parentNode.style.display=\'none\';">⨂</span></abbr>';
+                            // alert("r:"+val+"_qs:"+qsno);
+                            //-----------------RANDOM FUNCTION---------------------
+                            // qsno = Math.floor(Math.random() * (14 - 1 + 1) ) + 1; //COMMENT THIS STATEMENT FOR REMOVING RANDOM QUESTIONS
+                            // alert(qsno);
+                            qsno--; //for decreasing the index by 1
+                            //-----------------------------------------------------
+                            if (val==1){
+                                document.getElementById("popup").innerHTML = patch+"<span id='qsn'>"+r1q[qsno]+"</span>";
+                            }if (val==2){
+                                document.getElementById("popup").innerHTML = patch+"<span id='qsn'>"+r2q[qsno]+"</span>";
+                            }if (val==3){
+                                document.getElementById("popup").innerHTML = patch+"<span id='qsn'>"+r3q[qsno]+"</span>";
+                            }if (val==4){
+                                document.getElementById("popup").innerHTML = patch+"<span id='qsn'><img src='round4/"+r4q[qsno]+".png' alt='qsn_img'/></span>";
+                            }if (val==5){
+                                document.getElementById("popup").innerHTML = patch+"<span id='qsn'>"+r5q[qsno]+"</span>";
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <footer>
+            @ DESIGNED WITH <span style="color:rgb(94, 255, 0);">❤</span> BY SDCAC WEBTEAM &nbsp
+        </footer>
+    </body>
+</html>
+
+
+<!--
+<button onclick="document.getElementById('demo').innerHTML = num(1,14)">Click Me</button>
+function num(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+-->
+
+
+
+
+
+
+
+
+ <!--DESIGNED BY WEBTEAM SDCAC-->
+ <!-- DESIGNED BY ARUNTEJAMENDA -->
